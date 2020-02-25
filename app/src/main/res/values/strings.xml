@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FSTracking</string>
+    <string name="title_activity_maps">Map_app</string>
+
+    <!--
+    <string name="google_maps_key">AIzaSyA8cVDgnr__5lotErSGhECwh5oEFQIo3CI</string>
+-->
+
+    <string name="Key_MAp">AIzaSyDQ1y12R26AreNsZTtIlrj0xH7SL63hJco</string>
+    <string name="time">Time</string>
+    <string name="fcm_token">FCM Token: %s</string>
+</resources>

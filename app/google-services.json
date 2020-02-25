@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "921001252063",
+    "firebase_url": "https://fstracking.firebaseio.com",
+    "project_id": "fstracking",
+    "storage_bucket": "fstracking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921001252063:android:8874beefb98f5f7ddc456a",
+        "android_client_info": {
+          "package_name": "com.ao.fstracking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921001252063-c5e499337j1pjrah5d6v6gffdu3kvgr6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKyPGhq0IXktL_Qh7HlW4EKY79MMFlosA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921001252063-c5e499337j1pjrah5d6v6gffdu3kvgr6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
