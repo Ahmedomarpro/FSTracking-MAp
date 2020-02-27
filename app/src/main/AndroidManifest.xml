@@ -16,8 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.profile.ProfileCV"></activity>
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="m">
+        <activity android:name=".ui.profile.ProfileCV" />
         <activity android:name=".ui.charTest.CharHomeTest" />
         <activity android:name=".ui.signUp.SignUpPage" />
 

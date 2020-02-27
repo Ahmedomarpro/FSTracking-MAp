@@ -21,13 +21,13 @@ public interface ApiALL {
 
 
 	// http://blinkappservices.com/DriverService.asmx/GetCity?CountryID=100
-	@GET("DriverService.asmx/GetCity/{CountryID}")
-	Call<RepoCity> RESPONSE_CiTY_CALL(@Path("CountryID") String countryID);
+	@GET("DriverService.asmx/GetCity")
+	Call<RepoCity> RESPONSE_CiTY_CALL(@Query("CountryID") String countryID);
 
 
 	//http://blinkappservices.com/DriverService.asmx/GetGender
 	@GET("DriverService.asmx/GetGender")
-	Call<ResponseGender> RESPONSE_Gender_CALL();
+	Call<List<ResponseGender>> RESPONSE_Gender_CALL();
 
 	//********************------URL---------**********************************
 	// http://blinkappservices.com/MerchantService.asmx/GetShopType?BusinessTypeID=1

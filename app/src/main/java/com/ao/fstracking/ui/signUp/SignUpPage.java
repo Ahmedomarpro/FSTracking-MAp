@@ -29,6 +29,8 @@ public class SignUpPage extends AppCompatActivity {
 	protected TextView textBusiness;
 	private TextView textID;
 	private TextView textCity;
+	private String Result = "Result";
+	private String Error = "Error";
 	//List<InfoItem> arrayList = new ArrayList<>();
 
 	@Override
@@ -37,7 +39,53 @@ public class SignUpPage extends AppCompatActivity {
 		super.setContentView(R.layout.activity_sign_up_page);
 		initView();
 		signUpAPI();
+		Repo_City();
+		Gender_();
 
+	}
+
+	private void Repo_City() {
+		ConnectionRetrofit.gtApiALL().RESPONSE_CiTY_CALL("100").enqueue(new Callback<RepoCity>() {
+			@Override
+			public void onResponse(Call<RepoCity> call, Response<RepoCity> response) {
+				Log.e("Result", response.body().getInfo().get(0).getCityName());
+				textCity.setText(response.body().getInfo().get(0).getCityName());
+
+			}
+
+			@Override
+			public void onFailure(Call<RepoCity> call, Throwable t) {
+				Log.e(Error, t.getLocalizedMessage());
+				textCity.setText(t.getLocalizedMessage());
+
+
+			}
+		});
+	}
+
+	private void Gender_() {
+		ConnectionRetrofit.gtApiALL().RESPONSE_Gender_CALL().enqueue(new Callback<List<ResponseGender>>() {
+			@Override
+			public void onResponse(Call<List<ResponseGender>> call, Response<List<ResponseGender>> response) {
+				textGender.setText("" + response.body().get(0).getInfo().iterator().next()
+						.getGender());
+				Log.e("Test", "" + response.body().get(0).getInfo().iterator().next().getGender());
+				if (response.isSuccessful()) {
+					Toast.makeText(SignUpPage.this, "new " + response.body(), Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText(SignUpPage.this, "Error" + response.body(), Toast.LENGTH_SHORT).show();
+
+				}
+
+
+			}
+
+			@Override
+			public void onFailure(Call<List<ResponseGender>> call, Throwable t) {
+				textGender.setText(t.getLocalizedMessage());
+
+			}
+		});
 	}
 
 
@@ -81,40 +129,6 @@ public class SignUpPage extends AppCompatActivity {
 			}
 		});
 
-		ConnectionRetrofit.gtApiALL().RESPONSE_CiTY_CALL("100").enqueue(new Callback<RepoCity>() {
-			@Override
-			public void onResponse(Call<RepoCity> call, Response<RepoCity> response) {
-
-				//textCity.setText(response.body().getInfo().get(1).getCityName());
-				textCity.setText((CharSequence) response.body());
-				//	Log.e("getCity","" +response.body().getInfo().get(0).getCityName());
-
-			}
-
-			@Override
-			public void onFailure(Call<RepoCity> call, Throwable t) {
-				textCity.setText(t.getLocalizedMessage());
-
-			}
-		});
-
-
-		ConnectionRetrofit.gtApiALL().RESPONSE_Gender_CALL().enqueue(new Callback<ResponseGender>() {
-			@RequiresApi(api = Build.VERSION_CODES.N)
-			@Override
-			public void onResponse(Call<ResponseGender> call, Response<ResponseGender> response) {
-				Toast.makeText(SignUpPage.this, "" + response.body(), Toast.LENGTH_SHORT).show();
-				//textGender.setText(response.body().getInfo().iterator().next().getGender());
-				textGender.setText(response.body().getInfo().get(0).getGender());
-
-			}
-
-			@Override
-			public void onFailure(Call<ResponseGender> call, Throwable t) {
-				textGender.setText(t.getLocalizedMessage());
-
-			}
-		});
 
 		ConnectionRetrofit.gtApiALL().RESPONSE_Business_CALL("1").enqueue(new Callback<List<ResponseBusiness>>() {
 			@Override
